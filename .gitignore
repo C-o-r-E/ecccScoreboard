@@ -1,5 +1,9 @@
 *.py[cod]
 
+*.*~
+
+*.sqlite3
+
 # C extensions
 *.so
 
