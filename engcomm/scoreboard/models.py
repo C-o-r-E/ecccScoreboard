@@ -23,4 +23,4 @@ class Score(models.Model):
     notes = models.TextField()
 
     def __unicode__(self):
-        return u"%s: %s -> %d" % (self.comp, self.team.name, self.score)
+        return u"%s: %s -> %d" % (self.team.name, self.comp, self.score)

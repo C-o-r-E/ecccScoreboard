@@ -2,7 +2,7 @@
 	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <title>Scores</title>
+    <title>{{team.name}} score breakdown</title>
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/base.css" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/dashboard.css" />
     <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/ie.css" /><![endif]-->
@@ -32,21 +32,17 @@
 
           <div class="app-scoreboard module">
 	    <table>
-              <caption>Scores</caption>
+              <caption>{{ team.name }}</caption>
 	      <tr>	
-		<th>Team</th>
+		<th>Competition</th>
 		<th>Score</th>
 	      </tr>
-	      {% if teams %}
-	      {% for t in teams %}
+	      {% if scores %}
+	      {% for s in scores %}
 	      <tr>
-		<td>
-		  <a href="{% url 'team_scores' t.name %}">{{ t.name }}</a>
-		</td>
-		<td>
-		  {{ t.team_score }}
-		</td>
-	      </tr>
+		<td>{{ s.comp.name }}</td>
+		<td>{{ s.score }}</td>
+	      </tr>      
 	      {% endfor %}
 	      {% endif %}
 	    </table>
@@ -65,3 +61,37 @@
   </body>
 
 </html>
+
+
+<!--
+
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <h1>{{ team.name }}</h1>
+
+    <table>
+      <tr>
+	<td>Competition</td>
+	<td>Score</td>
+      </tr>
+
+      {% if scores %}
+      {% for s in scores %}
+      <tr>
+	<td>{{ s.comp.name }}</td>
+	<td>{{ s.score }}</td>
+      </tr>      
+      {% endfor %}
+      {% endif %}
+
+
+    </table>
+
+
+  </body>
+</html>
+
+-->
