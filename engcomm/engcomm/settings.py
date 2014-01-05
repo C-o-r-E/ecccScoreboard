@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gunicorn',
     'scoreboard',
 )
 
@@ -58,6 +59,15 @@ WSGI_APPLICATION = 'engcomm.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ecccdb',
+        'USER': 'django_user',
+        'PASSWORD': 'django123',
+        'HOST': 'localhost',
+        'PORT': '',                      # Set to empty string for default.
+    },
+
+    'old': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
